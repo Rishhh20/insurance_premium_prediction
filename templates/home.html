@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Premium Prediction Web Application</title>
+    
+</head>
+<body>
+    
+
+    
+    
+    <div class="section-body">
+        <div class="insurance-detail">
+        <h2>Insurance Premium Prediction</h2>
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+    <div class="mb-3">
+        <label class="form-label">Age</label>
+        <input  type="number" name="age" placeholder="Enter your Age" min="16"  required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Gender</label>
+        <select class="custom-style" name="gender" placeholder="Enter your Gender" required>
+            <option class="placeholder" selected disabled value="">Select your Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">BMI</label>
+        <input  type="number" name="bmi" placeholder="Enter your BMI" step="0.1" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Children</label>
+        <input  type="number" name="children" placeholder="Children" required>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Smoker</label>
+        <select class="custom-style" name="smoker" placeholder="Do you smoke?" required>
+            <option class="placeholder" selected disabled value="">Do you Smoke?</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Region</label>
+        <select class="custom-style" name="region" placeholder="Select your region" required>
+            <option class="placeholder" selected disabled value="">Select your region</option>
+            <option value="southwest">SouthWest</option>
+            <option value="southeast">SouthEast</option>
+            <option value="northwest">NorthWest</option>
+            <option value="northeast">NorthEast</option>
+        </select>
+    </div> 
+
+
+    <div class="mb-3">
+        <input class="btn btn-primary" type="submit" value="Predict Premium" required />
+    </div>
+
+    </form>
+    </div>
+   
+
+     <div class="img-insure">
+        <img src="static/img/home.png" alt="">
+    </div>
+</div>
+<div class="response-me">
+    <h3 style="font-size: 2.2rem;">Predicted Premium</h3>
+
+        <h1 style="font-size:  2.2rem; color: rgb(9, 154, 31);">{{results}}</h1>
+
+</div>
+</body>
+</html>
